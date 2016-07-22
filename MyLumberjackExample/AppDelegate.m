@@ -21,10 +21,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Override point for customization after application launch.
     MyCustomFormatter *formatter = [[MyCustomFormatter alloc] init];
     [DDTTYLogger sharedInstance].logFormatter = formatter;
-    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance] withLevel:LOG_LEVEL_FATAL];
     
     // Set the path of log files
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -41,19 +42,21 @@
     DDFileLogger *fatalFileLogger = [[DDFileLogger alloc] initWithLogFileManager:fatalLogFileManager];
     
     // File logger rolling stragegy
-    errorFileLogger.maximumFileSize = 1024 * 1;
+    errorFileLogger.maximumFileSize = 1024 * 1024 * 2;
 //    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
-    errorFileLogger.rollingFrequency = 60 * 5;   // 1 min rolling
+    errorFileLogger.rollingFrequency = 60 * 60 * 24;   // 1 min rolling
     
-    fatalFileLogger.maximumFileSize = 1024 * 1;
+    fatalFileLogger.maximumFileSize = 1024 * 1024 * 2;
     //    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
-    fatalFileLogger.rollingFrequency = 60 * 5;   // 1 min rolling
+    fatalFileLogger.rollingFrequency = 60 * 60 * 24;   // 1 min rolling
     
     errorFileLogger.logFormatter = [[ErrorCustomFormatter alloc] init];
     fatalFileLogger.logFormatter = formatter;
     
     [DDLog addLogger:errorFileLogger withLevel:LOG_LEVEL_ERROR];
     [DDLog addLogger:fatalFileLogger withLevel:LOG_LEVEL_FATAL];
+    
+    LogFatal(@"wakaka", @"%@", logsDirectory);
     
     return YES;
 }

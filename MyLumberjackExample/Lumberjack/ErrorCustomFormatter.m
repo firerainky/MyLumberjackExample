@@ -28,8 +28,10 @@
                          logMessage.queueLabel,
                          logMessage.message];
     
+    NSData *lineData = [logLine dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *base64Line = [lineData base64EncodedStringWithOptions:0];
     
-    return [NSString stringWithFormat:@"%@", logLine];
+    return [NSString stringWithFormat:@"%@", base64Line];
 }
 
 - (NSDateFormatter *)logLineDateFormatter {

@@ -107,16 +107,52 @@
                                     <action selector="asyncError:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yv1-vU-qHn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCy-PX-JCJ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="encodeLogFile"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="31" y="301" width="101" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="encodeLogFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BnA-q6-vo1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3J-6u-xDX">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="decodeLogFile"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="21" y="355" width="101" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="decodeLogFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C8f-SW-PQr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-GR-vUa">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="testNilStr"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="39" y="417" width="65" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="testNilStr:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TKR-6M-pz5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="yUp-Id-oVI"/>
+                                <exclude reference="bCy-PX-JCJ"/>
+                                <exclude reference="C3J-6u-xDX"/>
+                                <exclude reference="2Ep-GR-vUa"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="yUp-Id-oVI"/>
+                                <include reference="bCy-PX-JCJ"/>
+                                <include reference="C3J-6u-xDX"/>
+                                <include reference="2Ep-GR-vUa"/>
                             </mask>
                         </variation>
                     </view>
