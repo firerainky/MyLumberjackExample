@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "Logger.h"
+#import "GZIP.h"
+#import "ASIHttpRequest/ASIDataCompressor.h"
 #include <stdio.h>
 
 @interface ViewController ()
@@ -89,37 +91,29 @@
 }
 
 - (IBAction)decodeLogFile:(id)sender {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = paths[0];
-    NSString *logsDirectory = [documentsDirectory stringByAppendingPathComponent:@"logtest"];
     
-    LogFatal(@"wakaka", @"%@", logsDirectory);
-    
-    NSString *logFile = [logsDirectory stringByAppendingPathComponent:@"20160722.Error.log"];
+    NSString *logFile = @"/Users/zky/temp/2016-07-27-11-10-05-1.log.archive";
     NSString *logFileDecoded = [logFile stringByAppendingString:@".temp"];
     
     LogFatal(@"decode begin", @"xixixi");
     
-    [[NSFileManager defaultManager] createFileAtPath:@"/Users/zky/temp/2016-07-22.Error.log.temp" contents:[NSData data] attributes:nil];
-    NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:@"/Users/zky/temp/2016-07-22.Error.log.temp" append:NO];
+    [[NSFileManager defaultManager] createFileAtPath:logFileDecoded contents:[NSData data] attributes:nil];
+    NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:logFileDecoded append:NO];
     [outputStream open];
     
     const char *charLogFile = [logFile UTF8String];
-    LogFatal(@"wakaka", @"%s", charLogFile);
     
-    FILE *file = fopen("/Users/zky/temp/2016-07-22.Error.log", "r");
+    FILE *file = fopen(charLogFile, "r");
     // check for NULL
     while(!feof(file)) {
         NSString *base64Line = readLineAsNSString(file);
         NSData *base64Data = [[NSData alloc] initWithBase64EncodedString:base64Line options:0];
-        NSString *decodedLine = [[[NSString alloc] initWithData:base64Data encoding:NSUTF8StringEncoding] stringByAppendingString:@"\n"];
+        NSString *decodedLine = [[[NSString alloc] initWithData:base64Data encoding:NSUTF8StringEncoding] stringByAppendingString:@"\r\n"];
         NSData *decodedData = [decodedLine dataUsingEncoding:NSUTF8StringEncoding];
         [outputStream write:[decodedData bytes] maxLength:[decodedData length]];
     }
     fclose(file);
     [outputStream close];
-    
-    LogFatal(@"decode end", @"hahaha");
 }
 
 - (IBAction)testNilStr:(id)sender {
@@ -133,6 +127,64 @@
     NSLog(@"x: %ld", x);
 }
 
+- (IBAction)gzipFile:(id)sender {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSString *filePath = @"/Users/zky/temp/2016-07-27-11-10-05-1.log.archive.temp";
+    NSString *gzipPath = [filePath stringByAppendingString:@".gz"];
+    NSData *fileData = [[NSFileManager defaultManager] contentsAtPath:filePath];
+    NSData *outputData = [fileData gzippedData];
+    [[NSFileManager defaultManager] createFileAtPath:gzipPath contents:outputData attributes:nil];
+//    NSError *error = nil;
+//    [ASIDataCompressor compressDataFromFile:filePath toFile:gzipPath error:&error];
+//    if (error) {
+//        NSLog(@"CompressError: %@", error.description);
+//    }
+}
+
+- (IBAction)decodeFile:(id)sender {
+    NSString *logFile = @"/Users/zky/temp/2016-07-27-02-30-09-1.log.archive";
+    NSString *decodedFile = [logFile stringByAppendingString:@".temp"];
+    
+    [[NSFileManager defaultManager] createFileAtPath:decodedFile contents:[NSData data] attributes:nil];
+    NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:decodedFile append:NO];
+    [outputStream open];
+    
+    const char *charLogFile = [logFile UTF8String];
+    
+    FILE *file = fopen(charLogFile, "r");
+    // check for NULL
+    while(!feof(file)) {
+        NSString *base64Line = readLineAsNSString(file);
+        NSData *base64Data = [[NSData alloc] initWithBase64EncodedString:base64Line options:0];
+        NSString *decodedLine = [[[NSString alloc] initWithData:base64Data encoding:NSUTF8StringEncoding] stringByAppendingString:@"\n"];
+        NSData *decodedData = [decodedLine dataUsingEncoding:NSUTF8StringEncoding];
+        [outputStream write:[decodedData bytes] maxLength:[decodedData length]];
+    }
+    fclose(file);
+    [outputStream close];
+    
+    logFile = @"/Users/zky/temp/2016-07-27-02-30-08-2.log.archive";
+    decodedFile = [logFile stringByAppendingString:@".temp"];
+    
+    [[NSFileManager defaultManager] createFileAtPath:decodedFile contents:[NSData data] attributes:nil];
+    outputStream = [NSOutputStream outputStreamToFileAtPath:decodedFile append:NO];
+    [outputStream open];
+    
+    charLogFile = [logFile UTF8String];
+    
+    file = fopen(charLogFile, "r");
+    // check for NULL
+    while(!feof(file)) {
+        NSString *base64Line = readLineAsNSString(file);
+        NSData *base64Data = [[NSData alloc] initWithBase64EncodedString:base64Line options:0];
+        NSString *decodedLine = [[[NSString alloc] initWithData:base64Data encoding:NSUTF8StringEncoding] stringByAppendingString:@"\n"];
+        NSData *decodedData = [decodedLine dataUsingEncoding:NSUTF8StringEncoding];
+        [outputStream write:[decodedData bytes] maxLength:[decodedData length]];
+    }
+    fclose(file);
+    [outputStream close];
+}
 
 #pragma mark Private method
 NSString *readLineAsNSString(FILE *file)

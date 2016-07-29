@@ -137,6 +137,26 @@
                                     <action selector="testNilStr:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TKR-6M-pz5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEs-rg-0Xc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Gzip file"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="44" y="467" width="56" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="gzipFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ad-iS-jKj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4a-r7-QIq">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="decodeFile"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="137" y="419" width="76" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="decodeFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j5k-z4-sFo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -145,6 +165,8 @@
                                 <exclude reference="bCy-PX-JCJ"/>
                                 <exclude reference="C3J-6u-xDX"/>
                                 <exclude reference="2Ep-GR-vUa"/>
+                                <exclude reference="dEs-rg-0Xc"/>
+                                <exclude reference="Z4a-r7-QIq"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -153,6 +175,8 @@
                                 <include reference="bCy-PX-JCJ"/>
                                 <include reference="C3J-6u-xDX"/>
                                 <include reference="2Ep-GR-vUa"/>
+                                <include reference="dEs-rg-0Xc"/>
+                                <include reference="Z4a-r7-QIq"/>
                             </mask>
                         </variation>
                     </view>
