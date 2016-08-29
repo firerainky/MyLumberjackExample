@@ -12,6 +12,7 @@
 #import "ErrorLogFileManager.h"
 #import "FatalLogFileManager.h"
 #import "ErrorCustomFormatter.h"
+#import "Crasheye.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [Crasheye initWithAppKey:@"675e0830"];
     
     // Override point for customization after application launch.
     MyCustomFormatter *formatter = [[MyCustomFormatter alloc] init];

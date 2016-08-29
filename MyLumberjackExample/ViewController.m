@@ -10,7 +10,9 @@
 #import "Logger.h"
 #import "GZIP.h"
 #import "ASIHttpRequest/ASIDataCompressor.h"
+#import "ASIHttpRequest/ASIHTTPRequest.h"
 #include <stdio.h>
+#include "MyTest.h"
 
 @interface ViewController ()
 
@@ -28,6 +30,7 @@
 //    LogDebug(@"MSG_005", @"Debug log!");
     
     // Do any additional setup after loading the view, typically from a nib.
+    ddLogLevel = DDLogLevelOff;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,6 +64,9 @@
     LogWarn(@"MSG_003", @"Warn log! %@", @"Something warn~");
     LogInfo(@"MSG_004", @"Info log! %@", @"Something info~");
     LogDebug(@"MSG_005", @"Debug log! %@", @"Something debug~");
+    
+    MyTest *mt = [[MyTest alloc] init];
+    [mt testLog];
 }
 
 - (IBAction)batchFatal:(id)sender {
@@ -83,11 +89,8 @@
 }
 
 - (IBAction)encodeLogFile:(id)sender {
-    LogFatal(@"log begin", @"xixixi");
-    for (int i = 0; i < 1000; ++i) {
-        LogError(@"haha", @"Something should happen again and again");
-    }
-    LogFatal(@"log end", @"hahaha");
+    NSString *signKey = @"1000:314567058:FFEE7C6A-29CA-4177-880C-30D8D97F1443:signature=5453bbc9845ea4613d7cedc3ba639ee4e13159910cca04f5805048a44e395bbebe61c332bb1f9dc884c8aa15d8457a10c95b8458b79b53809d9c8cab7498c83d26bb02ef653004635b7d6b7d35e1e97e9b8e2a91a59b92c675af8746bc260a5077a24a34fd841d7be06d6b2b59fc9579edd2edc2f9f3b3e15c6c18c73a83309e";
+    NSLog(@"%@", [[signKey dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0]);
 }
 
 - (IBAction)decodeLogFile:(id)sender {
@@ -143,47 +146,50 @@
 }
 
 - (IBAction)decodeFile:(id)sender {
-    NSString *logFile = @"/Users/zky/temp/2016-07-27-02-30-09-1.log.archive";
-    NSString *decodedFile = [logFile stringByAppendingString:@".temp"];
-    
-    [[NSFileManager defaultManager] createFileAtPath:decodedFile contents:[NSData data] attributes:nil];
-    NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:decodedFile append:NO];
-    [outputStream open];
-    
-    const char *charLogFile = [logFile UTF8String];
-    
-    FILE *file = fopen(charLogFile, "r");
-    // check for NULL
-    while(!feof(file)) {
-        NSString *base64Line = readLineAsNSString(file);
-        NSData *base64Data = [[NSData alloc] initWithBase64EncodedString:base64Line options:0];
-        NSString *decodedLine = [[[NSString alloc] initWithData:base64Data encoding:NSUTF8StringEncoding] stringByAppendingString:@"\n"];
-        NSData *decodedData = [decodedLine dataUsingEncoding:NSUTF8StringEncoding];
-        [outputStream write:[decodedData bytes] maxLength:[decodedData length]];
+    NSString *path = @"/Users/zky/temp";
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *fileNames = [fileManager subpathsAtPath:path];
+    for (NSString *fileName in fileNames) {
+        NSString *filePath = [path stringByAppendingPathComponent:fileName];
+        NSString *decodePath = [filePath stringByReplacingOccurrencesOfString:@".archive" withString:@".temp"];
+        if ([filePath hasSuffix:@".log"]) {
+            decodePath = [filePath stringByReplacingOccurrencesOfString:@".log" withString:@".temp"];
+        }
+        
+//        NSString *decodePath = [filePath stringByReplacingOccurrencesOfString:@".log" withString:@".log.temp"];
+        NSOutputStream *outputStream = [NSOutputStream outputStreamToFileAtPath:decodePath append:NO];
+        [outputStream open];
+        
+        const char *charLogFile = [filePath UTF8String];
+        
+        FILE *file = fopen(charLogFile, "r");
+        // check for NULL
+        while(!feof(file)) {
+            NSString *base64Line = readLineAsNSString(file);
+            NSData *base64Data = [[NSData alloc] initWithBase64EncodedString:base64Line options:0];
+            NSString *decodedLine = [[[NSString alloc] initWithData:base64Data encoding:NSUTF8StringEncoding] stringByAppendingString:@"\n"];
+            NSData *decodedData = [decodedLine dataUsingEncoding:NSUTF8StringEncoding];
+            [outputStream write:[decodedData bytes] maxLength:[decodedData length]];
+        }
+        fclose(file);
+        [outputStream close];
     }
-    fclose(file);
-    [outputStream close];
-    
-    logFile = @"/Users/zky/temp/2016-07-27-02-30-08-2.log.archive";
-    decodedFile = [logFile stringByAppendingString:@".temp"];
-    
-    [[NSFileManager defaultManager] createFileAtPath:decodedFile contents:[NSData data] attributes:nil];
-    outputStream = [NSOutputStream outputStreamToFileAtPath:decodedFile append:NO];
-    [outputStream open];
-    
-    charLogFile = [logFile UTF8String];
-    
-    file = fopen(charLogFile, "r");
-    // check for NULL
-    while(!feof(file)) {
-        NSString *base64Line = readLineAsNSString(file);
-        NSData *base64Data = [[NSData alloc] initWithBase64EncodedString:base64Line options:0];
-        NSString *decodedLine = [[[NSString alloc] initWithData:base64Data encoding:NSUTF8StringEncoding] stringByAppendingString:@"\n"];
-        NSData *decodedData = [decodedLine dataUsingEncoding:NSUTF8StringEncoding];
-        [outputStream write:[decodedData bytes] maxLength:[decodedData length]];
-    }
-    fclose(file);
-    [outputStream close];
+}
+
+- (IBAction)httpsRequestTest:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"https://github.com"];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    [request setDelegate:self];
+    [request setDidFailSelector:@selector(requestFailed:)];
+    [request setDidFinishSelector:@selector(requestFinish:)];
+    [request startAsynchronous];
+}
+
+- (IBAction)createCrash:(id)sender {
+    // Create a crash
+    NSArray *arr = @[];
+    NSString *x = arr[0];
+    NSLog(@"%@", x);
 }
 
 #pragma mark Private method
@@ -206,6 +212,18 @@ NSString *readLineAsNSString(FILE *file)
     } while(charsRead == 4095);
     
     return result;
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)theRequest {
+    NSLog(@"response header: %@", [theRequest responseHeaders]);
+    NSLog(@"response data  : %@", [theRequest responseData]);
+    NSLog(@"response string: %@", [theRequest responseString]);
+}
+
+- (void)requestFinish:(ASIHTTPRequest *)theRequest {
+    NSLog(@"response header: %@", [theRequest responseHeaders]);
+    NSLog(@"response data  : %@", [theRequest responseData]);
+    NSLog(@"response string: %@", [theRequest responseString]);
 }
 
 @end

@@ -157,6 +157,26 @@
                                     <action selector="decodeFile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j5k-z4-sFo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vN1-yP-L9R">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="http_request"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="126" y="472" width="87" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="httpsRequestTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2KZ-l9-kCv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFU-I8-GSZ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Create Crash"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="27" y="529" width="105" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="createCrash:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oDP-Qb-8V3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -167,6 +187,8 @@
                                 <exclude reference="2Ep-GR-vUa"/>
                                 <exclude reference="dEs-rg-0Xc"/>
                                 <exclude reference="Z4a-r7-QIq"/>
+                                <exclude reference="vN1-yP-L9R"/>
+                                <exclude reference="cFU-I8-GSZ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -177,12 +199,15 @@
                                 <include reference="2Ep-GR-vUa"/>
                                 <include reference="dEs-rg-0Xc"/>
                                 <include reference="Z4a-r7-QIq"/>
+                                <include reference="vN1-yP-L9R"/>
+                                <include reference="cFU-I8-GSZ"/>
                             </mask>
                         </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="736.5" y="320"/>
         </scene>
     </scenes>
 </document>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		381F885D1D581BC700F60380 /* MyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F885C1D581BC700F60380 /* MyTest.m */; };
 		384EFD381D46F54F004B2F0A /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 384EFD371D46F54F004B2F0A /* NSData+GZIP.m */; };
 		384EFD5A1D48D609004B2F0A /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 384EFD441D48D608004B2F0A /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		384EFD5B1D48D609004B2F0A /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 384EFD471D48D608004B2F0A /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -17,6 +18,9 @@
 		384EFD601D48D609004B2F0A /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 384EFD531D48D608004B2F0A /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		384EFD611D48D609004B2F0A /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 384EFD551D48D608004B2F0A /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		384EFD651D48D905004B2F0A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 384EFD641D48D905004B2F0A /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		387D3FB61D73F00D00C44441 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 387D3FB51D73F00D00C44441 /* libz.tbd */; };
+		387D3FB81D73F01400C44441 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 387D3FB71D73F01400C44441 /* libc++.tbd */; };
+		387D3FBC1D73F02200C44441 /* libCrasheye.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 387D3FBB1D73F02200C44441 /* libCrasheye.a */; };
 		38B9FC551D2B33B600B3DEFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9FC541D2B33B600B3DEFD /* main.m */; };
 		38B9FC581D2B33B600B3DEFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9FC571D2B33B600B3DEFD /* AppDelegate.m */; };
 		38B9FC5B1D2B33B600B3DEFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B9FC5A1D2B33B600B3DEFD /* ViewController.m */; };
@@ -52,7 +56,6 @@
 		38DD785A1D2E3754005DE0B9 /* ZhaohuLog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38DD78591D2E3482005DE0B9 /* ZhaohuLog.h */; };
 		38DD785D1D2E4CE9005DE0B9 /* MyCustomFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD785C1D2E4CE9005DE0B9 /* MyCustomFormatter.m */; };
 		38DD78671D2F52EF005DE0B9 /* CompressingLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD78661D2F52EF005DE0B9 /* CompressingLogFileManager.m */; };
-		38DD78691D2F56B8005DE0B9 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 38DD78681D2F56B8005DE0B9 /* libz.1.2.5.tbd */; };
 		38DD786C1D2F8934005DE0B9 /* ErrorLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD786B1D2F8934005DE0B9 /* ErrorLogFileManager.m */; };
 		38DD786F1D2F894A005DE0B9 /* FatalLogFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD786E1D2F894A005DE0B9 /* FatalLogFileManager.m */; };
 		38DD78721D2F9A71005DE0B9 /* ErrorCustomFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD78711D2F9A71005DE0B9 /* ErrorCustomFormatter.m */; };
@@ -97,6 +100,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		381F885B1D581BC700F60380 /* MyTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTest.h; sourceTree = "<group>"; };
+		381F885C1D581BC700F60380 /* MyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTest.m; sourceTree = "<group>"; };
 		384EFD351D46F54F004B2F0A /* GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIP.h; sourceTree = "<group>"; };
 		384EFD361D46F54F004B2F0A /* NSData+GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GZIP.h"; sourceTree = "<group>"; };
 		384EFD371D46F54F004B2F0A /* NSData+GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GZIP.m"; sourceTree = "<group>"; };
@@ -122,6 +127,10 @@
 		384EFD561D48D608004B2F0A /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
 		384EFD631D48D905004B2F0A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		384EFD641D48D905004B2F0A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		387D3FB51D73F00D00C44441 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		387D3FB71D73F01400C44441 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		387D3FBA1D73F02200C44441 /* Crasheye.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crasheye.h; sourceTree = "<group>"; };
+		387D3FBB1D73F02200C44441 /* libCrasheye.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrasheye.a; sourceTree = "<group>"; };
 		38B9FC501D2B33B500B3DEFD /* MyLumberjackExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLumberjackExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B9FC541D2B33B600B3DEFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		38B9FC561D2B33B600B3DEFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -164,7 +173,6 @@
 		38DD785C1D2E4CE9005DE0B9 /* MyCustomFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCustomFormatter.m; path = Lumberjack/MyCustomFormatter.m; sourceTree = "<group>"; };
 		38DD78651D2F52EF005DE0B9 /* CompressingLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompressingLogFileManager.h; sourceTree = "<group>"; };
 		38DD78661D2F52EF005DE0B9 /* CompressingLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompressingLogFileManager.m; sourceTree = "<group>"; };
-		38DD78681D2F56B8005DE0B9 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		38DD786A1D2F8934005DE0B9 /* ErrorLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorLogFileManager.h; sourceTree = "<group>"; };
 		38DD786B1D2F8934005DE0B9 /* ErrorLogFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorLogFileManager.m; sourceTree = "<group>"; };
 		38DD786D1D2F894A005DE0B9 /* FatalLogFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FatalLogFileManager.h; sourceTree = "<group>"; };
@@ -178,8 +186,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38DD78691D2F56B8005DE0B9 /* libz.1.2.5.tbd in Frameworks */,
+				387D3FB81D73F01400C44441 /* libc++.tbd in Frameworks */,
+				387D3FB61D73F00D00C44441 /* libz.tbd in Frameworks */,
 				38B9FCB61D2B34F200B3DEFD /* libLumberjack.a in Frameworks */,
+				387D3FBC1D73F02200C44441 /* libCrasheye.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,10 +242,20 @@
 			path = ASIHttpRequest;
 			sourceTree = "<group>";
 		};
+		387D3FB91D73F02200C44441 /* Crasheye */ = {
+			isa = PBXGroup;
+			children = (
+				387D3FBA1D73F02200C44441 /* Crasheye.h */,
+				387D3FBB1D73F02200C44441 /* libCrasheye.a */,
+			);
+			path = Crasheye;
+			sourceTree = "<group>";
+		};
 		38B9FC471D2B33B500B3DEFD = {
 			isa = PBXGroup;
 			children = (
-				38DD78681D2F56B8005DE0B9 /* libz.1.2.5.tbd */,
+				387D3FB71D73F01400C44441 /* libc++.tbd */,
+				387D3FB51D73F00D00C44441 /* libz.tbd */,
 				38B9FC521D2B33B600B3DEFD /* MyLumberjackExample */,
 				38B9FC511D2B33B500B3DEFD /* Products */,
 			);
@@ -253,6 +273,7 @@
 		38B9FC521D2B33B600B3DEFD /* MyLumberjackExample */ = {
 			isa = PBXGroup;
 			children = (
+				387D3FB91D73F02200C44441 /* Crasheye */,
 				384EFD421D48D608004B2F0A /* ASIHttpRequest */,
 				384EFD341D46F54F004B2F0A /* Gzip */,
 				38DD785E1D2E4CFA005DE0B9 /* ZhaohuLogManager */,
@@ -267,6 +288,8 @@
 				38B9FC641D2B33B600B3DEFD /* Info.plist */,
 				38B9FC531D2B33B600B3DEFD /* Supporting Files */,
 				38B9FCB91D2B354B00B3DEFD /* Logger.h */,
+				381F885B1D581BC700F60380 /* MyTest.h */,
+				381F885C1D581BC700F60380 /* MyTest.m */,
 			);
 			path = MyLumberjackExample;
 			sourceTree = "<group>";
@@ -451,6 +474,7 @@
 				38B9FC5B1D2B33B600B3DEFD /* ViewController.m in Sources */,
 				38DD786C1D2F8934005DE0B9 /* ErrorLogFileManager.m in Sources */,
 				384EFD5F1D48D609004B2F0A /* ASIHTTPRequest.m in Sources */,
+				381F885D1D581BC700F60380 /* MyTest.m in Sources */,
 				38DD78721D2F9A71005DE0B9 /* ErrorCustomFormatter.m in Sources */,
 				384EFD601D48D609004B2F0A /* ASIInputStream.m in Sources */,
 				38B9FC581D2B33B600B3DEFD /* AppDelegate.m in Sources */,
@@ -535,8 +559,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -580,8 +605,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -605,10 +631,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MyLumberjackExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyLumberjackExample/Crasheye",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zky.MyLumberjackExample;
+				New_Setting = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-licucore",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zky.MyLumberjackExample.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -617,10 +653,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MyLumberjackExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyLumberjackExample/Crasheye",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zky.MyLumberjackExample;
+				New_Setting = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-licucore",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zky.MyLumberjackExample.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
